@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = 'https://api.aiforthai.in.th/panyapradit-lpr'
+url = ' endpoint  '
 files = {'file': open('imagefile.jpg', mode='rb')}
 headers = {'Apikey': "===========API KEY ============"}
 
@@ -10,6 +10,5 @@ json_object = json.dumps(r.json(), indent=4, ensure_ascii=False)
 with open("data.json", "w", encoding='utf8') as outfile:
     outfile.write(json_object)
 
-print("ทะเบียน : {}".format(str(r.json()["recognition"]).replace('/', '')))
 
 

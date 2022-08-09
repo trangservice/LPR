@@ -10,7 +10,7 @@ import sys, os, uuid, time
 from PIL import Image, ImageDraw, ImageFont
 
 rootPath = os.path.dirname(os.path.abspath(__file__))
-url = ''
+url = ' url / endpoint'
 headers = {'Apikey': ""}
 root_path = os.path.dirname(os.path.realpath(sys.argv[0]))
 

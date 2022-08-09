@@ -1,6 +1,9 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# test_code
+# rpi zero passed
+
 import requests
 import json
 import sys, os, uuid, time
@@ -86,7 +89,7 @@ class CarLpr:
         padding = 10
         font = ImageFont.truetype('Font-Sarun.ttf', 40)
         plate_id = str(txt)
-        plate_dt = 'ch:xx 00/00/00'
+        plate_dt = 'ch:xx 00/00/00' # get from event camera
 
         imgcp_draw = ImageDraw.Draw(imgcp)
         imgcp_draw.rectangle((pt_x - padding, pt_y - padding, pt_w + padding, pt_h + padding), fill=None, outline="yellow", width=3)
@@ -110,9 +113,9 @@ def bytesto(bytes, bsize=1024):
 def resizeImage(im, basewidth = 1024):
     tempImage = im
     tempImageName = '{}.jpg'.format(str(uuid.uuid4()))
-    wpercent = (basewidth/float(tempImage.size[0]))
-    hsize = int((float(tempImage.size[1])*float(wpercent)))
-    newImage = tempImage.resize((basewidth,hsize), Image.Resampling.LANCZOS)
+    width = (basewidth/float(tempImage.size[0]))
+    height = int((float(tempImage.size[1])*float(width)))
+    newImage = tempImage.resize((basewidth,height), Image.Resampling.LANCZOS)
     newImage.save(tempImageName)
     return tempImageName
 
@@ -134,9 +137,9 @@ def main():
         print('Error:: Input image Argument.')
         return False
 
-if __name__ == '__main__':
-    if main():
-        lpr = CarLpr()
-        lpr.setImage(str(sys.argv[1]))
-    else:
-        exit(0)
+# if __name__ == '__main__':
+#     if main():
+#         lpr = CarLpr()
+#         lpr.setImage(str(sys.argv[1]))
+#     else:
+#         exit(0)

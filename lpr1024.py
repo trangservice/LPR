@@ -18,12 +18,10 @@ class CarLpr:
     def __init__(self, ApiEndpoint=url, ApiKey=headers):
         self.ApiEndpoint = ApiEndpoint
         self.ApiKey = ApiKey
-
     def setImage(self, imageFile=None):
         reSize = Image.open(imageFile)
         imageUpload = '{}/{}'.format(rootPath,resizeImage(reSize))
         self.requestApi(imageUpload)
-
     def requestApi(self, imagePath):
         print(imagePath)
         self.files = {'file': open(imagePath, mode='rb')}
@@ -58,11 +56,8 @@ class CarLpr:
         except Exception as e:
             print(e)
             pass
-
-
         im = Image.open(imagePath)
         im_width, im_height = im.size
-
         # กำหนด x:y
         pt_x = int(box[1] * im_width)
         pt_y = int(box[0] * im_height)
@@ -70,13 +65,10 @@ class CarLpr:
         pt_w = int(box[3] * im_width)
         pt_h = int(box[2] * im_height)
         # print(pt_x, pt_y, pt_w, pt_h)
-
         # crop lpr
         print(':) Cropping Lpr image.')
-
         im1 = im.crop((pt_x, pt_y, pt_w, pt_h))
         im1.save('lpr_output_crop.jpg')
-
         # draw bounding box, label
         print(':) Drawing boundingbox, label.')
         imgcp = im
@@ -123,7 +115,6 @@ def main():
                 print('{}: {} Mb'.format('Error:: Over Limit size.', round(imSize, 2)))
                 return False         
             return True
-
         except IOError:
             print("Error:: Not found input image file.")
             return False

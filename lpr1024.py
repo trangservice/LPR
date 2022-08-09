@@ -33,18 +33,14 @@ class CarLpr:
             self.res = requests.post(self.ApiEndpoint, files=self.files, headers=self.ApiKey)
             # print(self.res.headers) # check return rate limit
             # print(self.res.json())
-
             json_lpr = json.dumps(self.res.json(), indent=4, ensure_ascii=False)
             with open(jsonPath, "w", encoding='utf8') as outfile:
                 outfile.write(json_lpr)
                 outfile.close()
-
             self.processImage(str(jsonPath), str(imagePath))
-
         except Exception as e:
             print(e)
             pass
-        
         # os.remove(imagePath)
         # os.remove(jsonPath)
 
@@ -52,8 +48,6 @@ class CarLpr:
         print(";) Running processImage.")
         try:
             with open(jsonPath, encoding="utf8") as json_file:
-                print('open json')
-
                 data = json.load(json_file)
                 r_char = data['r_char']
                 r_digit = data['r_digit']

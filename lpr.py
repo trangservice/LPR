@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = ' endpoint  '
+url = ' url/ endpoint  '
 files = {'file': open('imagefile.jpg', mode='rb')}
 headers = {'Apikey': "===========API KEY ============"}
 

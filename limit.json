@@ -1,0 +1,39 @@
+## check usage limit
+## from headers return 
+
+{
+   "Date":"Tue, 01 Aug 2021 09:28:05 GMT",
+   "Content-Type":"application/json",
+   "Transfer-Encoding":"chunked",
+   "Connection":"keep-alive",
+   "Vary":"Accept-Encoding",
+   "Access-Control-Allow-Origin":"*",
+   "X-RateLimit-Limit-minute":"10",
+   "X-RateLimit-Remaining-minute":"",
+   "X-RateLimit-Limit-day":"500",
+   "X-RateLimit-Remaining-month":"",
+   "X-RateLimit-Limit-month":"10000",
+   "X-RateLimit-Remaining-day":"",
+   "X-Custom-RateLimit-Limit-minute":"40",
+   "X-Custom-RateLimit-Remaining-minute":"",
+   "X-Kong-Upstream-Latency":"958",
+   "X-Kong-Proxy-Latency":"4",
+   "Via":"kong/1.3.0",
+   "Strict-Transport-Security":"max-age=15768000",
+   "Content-Encoding":"gzip"
+}
+
+
+### return lpr data
+{
+   "box":[
+      0.4255451261997223,
+      0.4298868179321289,
+      0.5258139371871948,
+      0.5808486938476562
+   ],
+   "r_char":"/กท",
+   "r_digit":"999",
+   "r_province":"กรุงเทพมหานคร",
+   "recognition":"/กท 999\nกรุงเทพมหานคร"
+}
